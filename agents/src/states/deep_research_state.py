@@ -1,11 +1,13 @@
+from langchain.messages import AnyMessage
 from typing import TypedDict, List
+from typing_extensions import Annotated
+import operator
 
 class ResearchState(TypedDict):
     query: str
     plan: str
-    converstation: int
-    notes: List[str]
+    current_thought: str
+    converstation:  Annotated[list[AnyMessage], operator.add]
+    compressed_observations: str
     sources: List[str]
-    draft: str
-    final: str
-    token_count: int
+    output: str

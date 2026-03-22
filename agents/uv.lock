@@ -1218,6 +1218,7 @@ dependencies = [
     { name = "pandas" },
     { name = "playwright" },
     { name = "sqlalchemy" },
+    { name = "typing-extensions" },
     { name = "weaviate-client" },
     { name = "wikipedia-api" },
 ]
@@ -1241,6 +1242,7 @@ requires-dist = [
     { name = "pandas", specifier = ">=3.0.1" },
     { name = "playwright", specifier = ">=1.58.0" },
     { name = "sqlalchemy", specifier = ">=2.0.48" },
+    { name = "typing-extensions", specifier = ">=4.15.0" },
     { name = "weaviate-client", specifier = ">=4.20.4" },
     { name = "wikipedia-api", specifier = ">=0.11.0" },
 ]
