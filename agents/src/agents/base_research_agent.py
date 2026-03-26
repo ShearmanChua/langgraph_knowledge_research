@@ -1,7 +1,7 @@
-from typing import TypedDict, List, Callable, Dict, Any
+from typing import Callable, Dict
 from langgraph.graph import StateGraph, END
-from langchain.chat_models import ChatOpenAI
 
+from prompts.planning import PLANNING_SYSTEM_PROMPT, PLANNING_PROMPT
 
 # -----------------------------
 # 2. Deep Research Agent Class
@@ -28,12 +28,8 @@ class DeepResearchAgent:
     # Node: Planner
     # -----------------------------
     def planner(self, state: ResearchState):
-        prompt = f"""
-        {self.system_prompt}
-
-        Break down this query into actionable steps:
-        {state['query']}
-        """
+        prompt = PLANNING_PROMPT.format(query=state["query"])
+        
         response = self.llm.predict(prompt)
         steps = [s.strip() for s in response.split("\n") if s.strip()]
 
