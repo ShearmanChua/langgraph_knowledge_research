@@ -1,0 +1,16 @@
+version: '3.5'
+
+networks:
+  agent:
+
+services:
+  mcp-server:
+    image: duckduckgo-mcp-tool:${MCP_SERVER_VERSION}
+    env_file:
+      - .env
+    networks:
+      - agent
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../mcp_tools/src:/app/src
