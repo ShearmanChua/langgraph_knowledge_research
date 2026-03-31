@@ -21,4 +21,16 @@ services:
       - ../notebooks:/notebooks
     ports:
       - 8889:8888
+  a2a:
+    image: a2a-agent:0.1.0
+    env_file:
+      - .env
+    networks:
+      - agent
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../a2a_agent/src:/app/src
+    ports:
+      - 10000:10000
 
